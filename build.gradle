@@ -6,12 +6,12 @@ apply plugin: 'opensearch.opensearchplugin'
 apply plugin: 'opensearch.yaml-rest-test'
 //apply plugin: 'opensearch.pluginzip'
 
-def pluginName = 'rename'
-def pluginDescription = 'Custom plugin'
+def pluginName = 'opensearch-demo-plugin'
+def pluginDescription = 'My demo plugin'
 def projectPath = 'org.opensearch'
-def pathToPlugin = 'path.to.plugin'
-def pluginClassName = 'RenamePlugin'
-group = "RenameGroup"
+def pathToPlugin = 'analysis.demo'
+def pluginClassName = 'DemoAnalyzerPlugin'
+group = "SomeFakeGroup"
 
 
 tasks.register("preparePluginPathDirs") {
@@ -21,6 +21,14 @@ tasks.register("preparePluginPathDirs") {
         mkdir "src/main/java/org/opensearch/$newPath"
         mkdir "src/test/java/org/opensearch/$newPath"
         mkdir "src/yamlRestTest/java/org/opensearch/$newPath"
+    }
+}
+
+allprojects {
+    group = 'org.opensearch'
+    plugins.withId('java') {
+        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
     }
 }
 

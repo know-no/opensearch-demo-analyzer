@@ -5,10 +5,11 @@
  * this file be licensed under the Apache-2.0 license or a
  * compatible open source license.
  */
-package org.opensearch.path.to.plugin;
+package org.opensearch.analysis.demo;
 
 import com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope;
 import org.apache.http.util.EntityUtils;
+import org.opensearch.analysis.demo.DemoAnalyzerPlugin;
 import org.opensearch.client.Request;
 import org.opensearch.client.Response;
 import org.opensearch.plugins.Plugin;
@@ -26,7 +27,7 @@ public class RenamePluginIT extends OpenSearchIntegTestCase {
 
     @Override
     protected Collection<Class<? extends Plugin>> nodePlugins() {
-        return Collections.singletonList(RenamePlugin.class);
+        return Collections.singletonList(DemoAnalyzerPlugin.class);
     }
 
     public void testPluginInstalled() throws IOException {
