@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.opensearch.analysis.demo.charfilters.DemoRemoveSomeCharsFilterFactory;
+import org.opensearch.analysis.demo.tokenizers.DemoCustomWordTokenizerFactory;
 import org.opensearch.index.analysis.CharFilterFactory;
 import org.opensearch.index.analysis.TokenFilterFactory;
 import org.opensearch.index.analysis.TokenizerFactory;
@@ -38,7 +39,10 @@ public class DemoAnalyzerPlugin extends Plugin implements AnalysisPlugin {
     @Override
     public Map<String, AnalysisProvider<TokenizerFactory>> getTokenizers() {
         // TODO Auto-generated method stub
-        return AnalysisPlugin.super.getTokenizers();
+        var stringAnalysisProviderHashMap = new HashMap<String, AnalysisProvider<TokenizerFactory>>();
+        stringAnalysisProviderHashMap.put("demo_custom_tokenizer", DemoCustomWordTokenizerFactory::new);
+        return stringAnalysisProviderHashMap;
+
     }
     // Implement the relevant Plugin Interfaces here
 

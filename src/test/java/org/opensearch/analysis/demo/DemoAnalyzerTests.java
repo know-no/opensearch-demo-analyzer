@@ -9,6 +9,6 @@ package org.opensearch.analysis.demo;
 
 import org.opensearch.test.OpenSearchTestCase;
 
-public class RenameTests extends OpenSearchTestCase {
+public class DemoAnalyzerTests extends OpenSearchTestCase {
     // Add unit tests for your plugin
 }
